@@ -1,4 +1,4 @@
-python-melangeclient (2012.3+e3-rcb1) precise; urgency=low
+python-melangeclient (2012.0+e3-rcb1) precise; urgency=low
 
   * stole upstream debians from ubuntu to respin from
     https://github.com/openstack/python-melangeclient,
