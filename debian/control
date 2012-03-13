@@ -1,0 +1,33 @@
+Source: python-melangeclient
+Section: python
+Priority: extra
+Maintainer: RCB Builder <rcb-deploy@lists.rackspace.com>
+XSBC-Original-Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+XSBC-Original-Original-Maintainer: PKG OpenStack <openstack-devel@lists.alioth.debian.org>
+Uploaders: Ghe Rivero <ghe.rivero@stackops.com>
+Build-Depends: debhelper (>= 8.0.0), python-all (>= 2.6.6-3~),
+ python-setuptools
+Standards-Version: 3.9.2
+X-Python-Version: >= 2.6
+XSBC-RCB-Component: essex-e3
+
+Package: python-melangeclient
+Architecture: all
+Section: python
+Depends: ${shlibs:Depends},
+ ${misc:Depends},
+ ${python:Depends},
+ python-yaml,
+Description: client API library for Melange
+ Python melange library for interacting with OpenStack melange.
+
+Package: melange-client
+Architecture: all
+Section: python
+Replaces: melange-client
+Depends: ${shlibs:Depends},
+ ${misc:Depends},
+ ${python:Depends},
+ python-melangeclient
+Description: Melange client
+ Python melange CLI for interacting with OpenStack melange.

@@ -1,0 +1,25 @@
+python-melangeclient (2012.3+e3-rcb1) precise; urgency=low
+
+  * stole upstream debians from ubuntu to respin from
+    https://github.com/openstack/python-melangeclient,
+    revision 052b7fe901d2ab5ce4f493e3f67aa5941efc4777
+
+ -- RCB Builder <rcb-deploy@lists.rackspace.com>  Tue, 13 Mar 2012 15:22:51 -0700
+
+python-melangeclient (0.1-1ubuntu1) precise; urgency=low
+
+  * Add build-dependency on python-setuptools. Fixes FTBFS.
+
+ -- Daniel T Chen <crimsun@ubuntu.com>  Tue, 14 Feb 2012 00:34:15 -0500
+
+python-melangeclient (0.1-1) unstable; urgency=low
+
+  * Initial Debian packaging
+
+ -- Ghe Rivero <ghe.rivero@stackops.com>  Mon, 06 Feb 2012 17:22:23 +0100
+
+python-melangeclient (0.0.1-placeholder) unstable; urgency=low
+
+  * Initial internal package creation.
+
+ -- Major Hayden <major.hayden@rackspace.com>  Tue, 03 Jan 2012 09:55:32 -0600

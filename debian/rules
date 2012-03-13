@@ -1,0 +1,48 @@
+#!/usr/bin/make -f
+
+#export DH_VERBOSE=1
+
+# Prep a version string for the changelog entry
+#export VERSION=`python setup.py --version | tail -n 1`
+#export GITREV=`git rev-list --all | wc -l`
+#export SHORTHASH=`git log --pretty=format:'%h' -n 1`
+#export CHANGELOGENTRY="$(VERSION)-0rs-$(GITREV)-$(SHORTHASH)"
+
+%:
+	dh $@ --with python2
+
+# If you want to run an automated build (for something like Jenkins),
+# this is the thing for you.  Just run:
+#
+#   debian/rules automated-build
+#
+
+automated-build:
+	# Make a backup of the upstream debian/control
+	cp -av debian/control debian/control.pristine
+
+	# Add the current git hash to the Description field of the package
+	sed -i "s/^Description: .*$$/& (git: `git rev-parse HEAD`)/" debian/control
+
+	# Update the changelog
+	dch -v $(CHANGELOGENTRY) "Automated build called via debian/rules automated-bu\
+ild."
+
+	# Clean up
+	dh clean
+
+	# Drop in the full git log as well as the last commit
+	git log | gzip -9vc > fullgitlog-python-melangeclient.gz
+	git log -n 1 > lastcommit-python-melangeclient.txt
+
+	# Build it
+	dh build --with-python2
+	fakeroot dh binary --with python2
+
+	# Put the upstream debian/control back in place
+	mv -v debian/control.pristine debian/control
+
+override_dh_auto_clean:
+
+override_dh_auto_build:
+
